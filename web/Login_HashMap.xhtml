@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <p:tooltip />
+         
+        <h:form>
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <p:commandButton value="Info" actionListener="#{messagesView.info}" />
+            <p:commandButton value="Warn" actionListener="#{messagesView.warn}" />
+            <p:commandButton value="Error" actionListener="#{messagesView.error}" />
+            <p:commandButton value="Fatal" actionListener="#{messagesView.fatal}" />
+        </h:form>
+
+        <p:separator />
+
+        <h:form>
+            <h:panelGrid id="grid" columns="3" cellpadding="5">
+                <p:outputLabel for="default" value="Usuario:" />
+                <p:inputText id="default" required="true" value="#{messagesView.usuario}"/>
+                <p:message for="default" />
+
+                <p:outputLabel for="txt" value="Contaseña:" />
+                <p:inputText id="txt" required="true" value="#{messagesView.password}"/>
+                <p:message for="txt" display="text" />
+
+      
+            </h:panelGrid>
+
+            <p:commandButton id="submitButton" value="Submit" actionListener="#{messagesView.verificar}" />
+        </h:form>
+   
+    </body>
+</html>
